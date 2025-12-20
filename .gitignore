@@ -1,0 +1,50 @@
+old/
+
+# =========== 1. Python 與編譯相關 ===========
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========== 2. 虛擬環境與函式庫 (根據您的截圖) ===========
+.conda/
+.dotnet/
+.keras/
+.nv/
+
+# =========== 3. 編輯器與 IDE 設定 ===========
+.cursor/
+.cursor-server/
+.vscode-server/
+# 如果您有使用 VS Code 的工作區設定，也可以忽略
+.vscode/
+
+# =========== 4. 系統與使用者設定 (這些絕對不要上傳) ===========
+.cache/
+.config/
+.local/
+.Xauthority
+.ssh/
+
+# =========== 5. Shell 歷史紀錄與設定 ===========
+# 這些通常包含敏感指令紀錄，千萬別上傳
+.bash_history
+.bashrc
+.gitconfig
+.lesshst
+.viminfo
+.wget-hsts
+
+# =========== 6. 大型資料與模型 (建議選項) ===========
+# 根據您的截圖，這些資料夾看起來像是訓練資料或模型，
+# 如果檔案很大 (超過 100MB)，Git 會推不上去，建議也忽略。
+# 如果確定要備份這些，請在下方移除這幾行的 #
+data/audios/venv/
+data/hdspikes/
+model/not_used_model/
+pngData/
+conversion/
+delay_SNN/
+
+# =========== 7. 重要例外 ===========
+# 雖然我們忽略了大部分 . 開頭的檔案，但 .gitignore 本身必須被追蹤
+!.gitignore
