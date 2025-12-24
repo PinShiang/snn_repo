@@ -9,7 +9,7 @@ import torch.nn as nn
 import os
 import h5py
 from pathlib import Path
-
+import random
 from utils import get_shd_dataset
 
 
@@ -401,18 +401,34 @@ def main():
     print("=" * 70)
     
     # Load the model
-    checkpoint = load_model('model/best_model_dropout_epoch220_testacc0.852.pth', device=device)
+    checkpoint = load_model('model/best_model_epoch130_testacc0.941.pth', device=device)
     print("=" * 70)
     
     # Process all files in myData/spikes/myOneToTen
-    spikes_dir = 'data/myOneToTen'
+    spikes_dir = 'data/test_npz'
     
     if not os.path.exists(spikes_dir):
         print(f"Error: Directory '{spikes_dir}' does not exist!")
         return
     
-    # Find all .npz files
-    spike_files = sorted(Path(spikes_dir).glob("*.npz"))
+    # # Find all .npz files
+    # spike_files = sorted(Path(spikes_dir).glob("*.npz"))
+    target_count = 20
+    spike_files = []
+
+    # 使用 iterator，不要用 list() 轉成列表，這樣就不會一次載入所有檔案
+    iterator = Path(spikes_dir).glob("*.npz")
+
+    for i, file_path in enumerate(iterator):
+        if i < target_count:
+            # 前 20 個直接放入
+            spike_files.append(file_path)
+        else:
+            # 第 21 個開始，以 20/(i+1) 的機率替換掉原本的某一個
+            # 這是數學上證明均勻隨機的
+            j = random.randint(0, i)
+            if j < target_count:
+                spike_files[j] = file_path
     
     if not spike_files:
         print(f"No .npz files found in '{spikes_dir}'")

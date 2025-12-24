@@ -39,6 +39,7 @@ __pycache__/
 # 如果檔案很大 (超過 100MB)，Git 會推不上去，建議也忽略。
 # 如果確定要備份這些，請在下方移除這幾行的 #
 data/audios/venv/
+data/test_npz/
 data/hdspikes/
 model/not_used_model/
 pngData/
