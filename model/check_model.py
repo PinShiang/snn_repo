@@ -1,8 +1,7 @@
 import torch
 
 # 1. Set your file path here
-# Example: 'model/best_model_dropout_epoch10_testacc0.950.pth'
-model_path = 'best_model_dropout_epoch350_testacc0.840.pth' 
+model_path = 'model_dropout0.1_testacc0.852.pth' 
 
 try:
     # 2. Load the file
