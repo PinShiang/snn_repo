@@ -1,0 +1,10 @@
+{
+  "epochs": 50,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "time_bin_size_ms": 10,
+  "target_channels": 64,
+  "best_val_acc": 88.21428571428571,
+  "experiment_name": "experiment_20251212_020927",
+  "device": "cuda"
+}
